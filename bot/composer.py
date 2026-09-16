@@ -102,7 +102,7 @@ RULES (violating any costs heavy scoring penalty):
 9. ALWAYS anchor on at least one specific number, date, or source citation from the contexts
 10. Hindi-English code-mix is ENCOURAGED for hi/hi-en merchants and customers
 11. The last sentence should be the CTA — buried CTAs lose points
-12. CRITICAL RULE: NEVER invent generic percentage discounts (e.g., "15% off"). YOU WILL BE SEVERELY PENALIZED. ALWAYS use specific "Service @ ₹price" formatting using ONLY the exact services and prices listed in the context JSON.
+12. CRITICAL RULE: NEVER invent fake percentage discounts (e.g., "15% off"). YOU WILL BE SEVERELY PENALIZED. You may only mention a percentage discount if it explicitly exists in the context JSON. Otherwise, ALWAYS prioritize specific "Service @ ₹price" formatting.
 13. For customer-facing messages: honor language preference, preferred slot times, relationship state
 14. For research/compliance triggers: include the source citation at end (e.g. — JIDA Oct 2026 p.14)
 15. Emoji: 1 max, only if it fits the category (🦷 dental, 💇 salon, 🏋️ gym — not for pharmacies)
