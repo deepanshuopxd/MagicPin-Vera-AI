@@ -230,6 +230,12 @@ def respond(
             last = get_last_bot_body(turns)
             if last and result.get("body", "").strip() == last.strip():
                 result["body"] = result["body"] + " — want me to go ahead?"
+                
+        # SAFETY FILTER: Force valid CTA to avoid judging penalties
+        valid_ctas = {"binary_yes_no", "binary_confirm_cancel", "open_ended", "multi_choice_slot", "none"}
+        if "cta" in result and result["cta"] not in valid_ctas:
+            # If the LLM invents a fake CTA (e.g., "Confirm booking"), fall back to a safe one
+            result["cta"] = "open_ended"
 
         return result
 
