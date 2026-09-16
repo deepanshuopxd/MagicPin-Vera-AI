@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Ping Health Endpoint
         # TODO: Replace the URL below with your actual Render URL once it's deployed
-        run: curl -sSf https://YOUR-APP-NAME.onrender.com/v1/healthz || echo "Ping failed but continuing"
+        run: curl -sSf https://magicpin-vera-ai-wh3h.onrender.com/v1/healthz || echo "Ping failed but continuing"
