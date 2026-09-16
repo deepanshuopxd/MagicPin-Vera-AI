@@ -1,0 +1,15 @@
+name: Keep Render Alive
+
+on:
+  schedule:
+    # Runs every 10 minutes to prevent Render's free tier from spinning down
+    - cron: "*/10 * * * *"
+  workflow_dispatch: # Allows you to trigger it manually from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Health Endpoint
+        # TODO: Replace the URL below with your actual Render URL once it's deployed
+        run: curl -sSf https://YOUR-APP-NAME.onrender.com/v1/healthz || echo "Ping failed but continuing"
