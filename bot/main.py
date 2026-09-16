@@ -110,7 +110,7 @@ def healthz():
 def metadata():
     return {
         "team_name": "Vera AI",
-        "team_members": ["Challenger"],
+        "team_members": ["Deepanshu Fulara"],
         "model": os.getenv("LLM_MODEL", "llama-3.3-70b-versatile"),
         "approach": (
             "4-context LLM composer (category+merchant+trigger+customer) with "
@@ -118,7 +118,7 @@ def metadata():
             "(merchant-level counter survives conv_id changes), intent-transition "
             "routing, hostile-message handling. Adaptive to context version updates."
         ),
-        "contact_email": "challenger@example.com",
+        "contact_email": "deepanshufulara17@gmail.com",
         "version": "1.1.0",
         "submitted_at": "2026-04-26T08:00:00Z",
     }
@@ -320,3 +320,9 @@ def teardown():
     sent_suppression_keys.clear()
     merchant_auto_reply_counts.clear()
     return {"wiped": True}
+
+if __name__ == "__main__":
+    import uvicorn
+    import os
+    port = int(os.environ.get("PORT", 8080))
+    uvicorn.run(app, host="0.0.0.0", port=port)
