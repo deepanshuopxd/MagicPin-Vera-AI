@@ -175,24 +175,16 @@ def respond(
     # state["auto_reply_count"] before calling respond(). Just read it here.
     if is_auto_reply(merchant_message):
         new_count = state.get("auto_reply_count", 1)  # already incremented by main.py
-        if new_count >= 3:
+        if new_count >= 2:
             return {
                 "action": "end",
                 "rationale": f"Auto-reply detected {new_count} times in a row. Owner not at phone. Closing.",
             }
-        elif new_count == 2:
+        else:
             return {
                 "action": "wait",
-                "wait_seconds": 86400,
-                "rationale": "Second consecutive auto-reply. Backing off 24 hours.",
-            }
-        else:
-            mname = merchant.get("identity", {}).get("name", "") if merchant else ""
-            return {
-                "action": "send",
-                "body": f"Looks like an auto-reply 😊 When {mname or 'the owner'} sees this, just reply YES to continue.",
-                "cta": "binary_yes_no",
-                "rationale": "Detected first auto-reply; one prompt to flag it for the owner.",
+                "wait_seconds": 3600,
+                "rationale": "Detected first auto-reply. Instantly backing off for 1 hour to save LLM turns without polling the merchant.",
             }
     else:
         state["auto_reply_count"] = 0
@@ -258,8 +250,8 @@ def _classify_situation(message: str, state: dict) -> str:
     if is_positive_intent(message):
         return (
             "INTENT TRANSITION — merchant has CONFIRMED/ACCEPTED. "
-            "Switch to action mode immediately. Do NOT ask qualifying questions. "
-            "Deliver the artifact or next concrete step."
+            "CRITICAL RULE: Switch to action mode immediately. Do NOT ask ANY qualifying questions. "
+            "Deliver the artifact or next concrete step directly. Set cta to 'none' or 'binary_confirm_cancel'."
         )
     msg_lower = message.lower()
     off_topic_signals = ["gst", "tax", "legal", "police", "government", "loan", "bank", "insurance"]

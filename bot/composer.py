@@ -102,7 +102,7 @@ RULES (violating any costs heavy scoring penalty):
 9. ALWAYS anchor on at least one specific number, date, or source citation from the contexts
 10. Hindi-English code-mix is ENCOURAGED for hi/hi-en merchants and customers
 11. The last sentence should be the CTA — buried CTAs lose points
-12. "X% off" generic discounts score LOWER than "Service @ ₹price" specifics
+12. CRITICAL RULE: NEVER invent generic percentage discounts (e.g., "15% off"). YOU WILL BE SEVERELY PENALIZED. ALWAYS use specific "Service @ ₹price" formatting using ONLY the exact services and prices listed in the context JSON.
 13. For customer-facing messages: honor language preference, preferred slot times, relationship state
 14. For research/compliance triggers: include the source citation at end (e.g. — JIDA Oct 2026 p.14)
 15. Emoji: 1 max, only if it fits the category (🦷 dental, 💇 salon, 🏋️ gym — not for pharmacies)
@@ -181,8 +181,9 @@ KIND_GUIDANCE = {
         "Suggest one action that turns the milestone into forward momentum."
     ),
     "dormant_with_vera": (
-        "Re-engage without guilt. Lead with a new piece of value relevant to their category right now. "
-        "Don't mention the dormancy — just give them a reason to re-engage."
+        "Re-engage by leveraging a CURIOSITY GAP. Don't just state facts. Ask a thought-provoking question "
+        "about a specific metric or trend in their category right now to pull them into a conversation. "
+        "Don't mention their dormancy."
     ),
     "review_theme_emerged": (
         "Name the theme and the occurrence count. Offer to draft a response template or fix. "
@@ -197,16 +198,16 @@ KIND_GUIDANCE = {
         "their category. End with offer to draft the GBP post or WhatsApp blast."
     ),
     "ipl_match_today": (
-        "Name the match + venue + time. Use the seasonal data (weeknight vs weekend pattern). "
-        "Recommend the smart play — which existing offer to push, or not to push."
+        "Name the match + venue + time. Leverage a CURIOSITY GAP by asking if they've prepared for the "
+        "unique seasonal pattern you observed (weeknight vs weekend). Recommend the smart play."
     ),
     "renewal_due": (
         "Be direct — X days left. Show what they'd lose (profile paused, visibility drop). "
         "Single confirm CTA. Don't beg — frame as their business interest."
     ),
     "curious_ask_due": (
-        "Ask the merchant ONE specific question about their business right now. "
-        "Offer to turn their answer into a ready-made artifact (post, reply template, etc.)."
+        "Ask the merchant ONE highly specific, curiosity-driven question about their business right now. "
+        "It should make them pause and think. Offer to turn their answer into a ready-made artifact."
     ),
     "winback_eligible": (
         "Lead with what they've missed since expiry (specific metric). "
